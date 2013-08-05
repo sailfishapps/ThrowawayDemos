@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=QT5TestLS
+Icon=icon-launcher-gallery
+Exec=invoker --type=silica-qt5 -s /usr/bin/QT5TestLS
+Comment=Sailfish UI application
+
+
