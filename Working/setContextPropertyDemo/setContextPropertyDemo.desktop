@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=setContextPropertyDemo
+Icon=icon-launcher-gallery
+Exec=invoker --type=silica-qt5 -s /usr/bin/setContextPropertyDemo
+Comment=Sailfish UI application
+
+
