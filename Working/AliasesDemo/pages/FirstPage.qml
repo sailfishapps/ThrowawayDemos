@@ -3,7 +3,6 @@ import Sailfish.Silica 1.0
 import Sailfish.Silica.theme 1.0
 
 
-
 Page {
     id: page
 
@@ -18,11 +17,12 @@ Page {
     //2) childElementOne: NOT OK:   Try to expose a property on the same level as the alias
     //3) childElementOne: OK:       Expose the (c++) item itself
     //4) childElementTwo: OK:       Expose an item written in QML
-    //5) compoundElement: OK:       Expose a compound c++ item
-    //6) compoundElement: OK:       Expose a child of a compound c++ item (QtLocation PositionSource)
-    //7) compoundElement: NOT OK:   Expose a child of a child of a compound c++ item
-    //8) compoundElement: NOT OK:   Expose a property of a child of a child of a compound c++ item
-
+    //5) compoundElement: OK:       Expose a compound c++ item (QtLocation PositionSource)
+    //6) compoundElement: OK:       Expose a child of a compound c++ item (QtLocation PositionSource.position)
+    //7) compoundElement: NOT OK:   Expose a child of a child of a compound c++ item (QtLocation PositionSource.position.coordinate)
+    //8) compoundElement: NOT OK:   Expose a property of a child of a child of a compound c++ item (QtLocation PositionSource.position.coordinate)
+    //9) compoundElement: OK:       Indirectly expose grandChild properties
+    //                              by exposing QML Item with properties boud to those of grandChild element
 
     ChildElementOne {
         id: childElementOne
@@ -78,6 +78,18 @@ Page {
             Label {
                 x: Theme.paddingLarge
                 text: childElementTwo.qmlElement.wrappedItemProperty
+                color: Theme.secondaryHighlightColor
+                font.pixelSize: Theme.fontSizeLarge
+            }
+            Label {
+                x: Theme.paddingLarge
+                text: "Latitude: " + compoundElement.aliasToPositionSourcePosition.coordinate.latitude
+                color: Theme.secondaryHighlightColor
+                font.pixelSize: Theme.fontSizeLarge
+            }
+            Label {
+                x: Theme.paddingLarge
+                text: "Longitude: " + compoundElement.aliastoCoordinate.longitude
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeLarge
             }
