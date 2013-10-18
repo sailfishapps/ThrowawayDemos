@@ -15,3 +15,5 @@ It is the code that is interesting.
 2) Working.setContextPropertyDemo: Demos how setContextPropertyDemo can be used in Qt5 / Alpha 2
 to pass simple C++ properties from the main.cpp file to the QML side of a project
 Blog page on this coming soon....
+
+3) Working.LandedSettingsCMenuDemo2 demonstrates a Listview that expands when a context menu opens when the menu delegate is pressedAndHeld
