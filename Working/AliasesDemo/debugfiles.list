@@ -1,0 +1,8 @@
+%dir /usr/lib/debug
+%dir /usr/lib/debug/usr
+%dir /usr/lib/debug/usr/bin
+%dir /usr/lib/debug/.build-id
+%dir /usr/lib/debug/.build-id/b9
+/usr/lib/debug/usr/bin/AliasesDemo.debug
+/usr/lib/debug/.build-id/b9/46c89c16ce82a75767b3f4714d63ec261c83ad
+/usr/lib/debug/.build-id/b9/46c89c16ce82a75767b3f4714d63ec261c83ad.debug
