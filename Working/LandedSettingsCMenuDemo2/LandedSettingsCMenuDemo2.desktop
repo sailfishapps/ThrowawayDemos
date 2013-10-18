@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=LandedSettingsCMenuDemo2
+Icon=icon-launcher-gallery
+Exec=invoker --type=silica-qt5 -s /usr/bin/LandedSettingsCMenuDemo2
+Comment=Sailfish UI application
+
+
