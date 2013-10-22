@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=WrappedEnumsDemoQt5_0
+Icon=icon-launcher-gallery
+Exec=invoker --type=silica-qt5 -s /usr/bin/WrappedEnumsDemoQt5_0
+Comment=Sailfish UI application
+
+
