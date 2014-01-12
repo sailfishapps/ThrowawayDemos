@@ -14,4 +14,4 @@ The idea of the "in-line" code is to allow tinkering and thus possibly to track 
 
 Copyright of the inline src and headers files "pinched" from QtPositioning remains that of Diga, as stated at the top of the files. They are included here for demonstration purposes only.
 
-Note this error is not generated on the Sailfish Emulator. It is generatd on a real Jolla running 1.0.2.5
+Note this error is not generated on the Sailfish Emulator. It is generated on a real Jolla running 1.0.2.5
