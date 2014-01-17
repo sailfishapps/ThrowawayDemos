@@ -13,6 +13,7 @@ ApplicationWindow
             pageStack.push(secondPage)
         }
     }
+
     SecondPage {
         id: secondPage
         onNextPage: {
