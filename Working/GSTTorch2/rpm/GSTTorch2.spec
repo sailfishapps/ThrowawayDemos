@@ -20,11 +20,13 @@ License:    LICENSE
 URL:        http://example.org/
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  GSTTorch2.yaml
+Requires:   nemo-qml-plugin-policy-qt5
 Requires:   sailfishsilica-qt5 >= 0.10.9
 BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(sailfishapp) >= 0.0.10
+BuildRequires:  nemo-qml-plugin-policy-qt5
 BuildRequires:  desktop-file-utils
 
 %description

@@ -11,6 +11,7 @@ TARGET = GSTTorch2
 CONFIG += sailfishapp
 
 PKGCONFIG += gstreamer-0.10
+# libresourceqt5
 
 SOURCES += src/GSTTorch2.cpp \
     src/gsttorch.cpp
