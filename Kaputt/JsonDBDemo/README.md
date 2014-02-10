@@ -5,7 +5,9 @@ The original idea was to use json as a way of loading a LocalStorageDB. The file
 Then I discovered this:
 
 http://goessner.net/articles/JsonPath/
+
 https://code.google.com/p/jsonpath/
+
 https://github.com/kromain/qml-utils
 
 And this got me thinking: My data model is simple, four tables with a few handfuls of records each. Simple enought to be able to query directly.
