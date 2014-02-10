@@ -1,6 +1,6 @@
 This project demonstrates use of Jsonpath to query a simple datamodel.
 
-The original idea was ot use json as a way of loading a LocalStorageDB. The file would be created on a Qt Desktop app, then used to load my app Landed on the Jolla Sailfish.
+The original idea was to use json as a way of loading a LocalStorageDB. The file would be created on a Qt Desktop app (more suited to setting up a Database than a smartphone), then used to load my app Landed on the Jolla Sailfish.
 
 Then I discovered this:
 
@@ -8,11 +8,11 @@ http://goessner.net/articles/JsonPath/
 https://code.google.com/p/jsonpath/
 https://github.com/kromain/qml-utils
 
-And this got me thinking: My data model is simple, four tables with a few handfuls of records each. Simple enought to be able query directly.
+And this got me thinking: My data model is simple, four tables with a few handfuls of records each. Simple enought to be able to query directly.
 
-As all my SQLs are centralised in a javascript file (rather than being spread across all my QML files), if jsonpath can return a similar structure to that returned from LocalStorage, then it should be possible to swap in a json db inplace of the LocalStorage.
+As all my SQLs are centralised in a javascript file (rather than being spread across all my QML files), if jsonpath can return a similar structure to that returned from LocalStorage, then it should be possible to swap in a json db in place of the LocalStorage.
 
-The demo uses just two entities: Areas, and Templates. Templates are childs of Areas.
+The demo uses just two entities / elements: Areas, and Templates. Templates are childs of Areas.
 
 On the FirstPage.qml are 2 ListViews:
 
