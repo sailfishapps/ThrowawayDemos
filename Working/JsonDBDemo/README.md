@@ -10,7 +10,7 @@ https://code.google.com/p/jsonpath/
 
 https://github.com/kromain/qml-utils
 
-And this got me thinking: My data model is simple, four tables with a few handfuls of records each. Simple enought to be able to query directly.
+And that got me thinking: My data model is simple, four tables with a few handfuls of records each. Simple enought to be able to query directly.
 
 As all my SQLs are centralised in a javascript file (rather than being spread across all my QML files), if jsonpath can return a similar structure to that returned from LocalStorage, then it should be possible to swap in a json db in place of the LocalStorage.
 
@@ -20,9 +20,7 @@ On the FirstPage.qml are 2 ListViews:
 
 The first lists all areas: This works -->OK
 
-The second should list just the templates that are the childs of one of the areas: At the moment however it lists all templates: --> NotOk
-
-It is possible that my query is incorrectly formed, or that jsonpath has a bug. I am investigating .....
+The second lists the templates that are the childs of the area with id = 1 
 
 Note you will need to manually deploy the json file to the Jolla device / Sailfish Emulator
 
@@ -34,3 +32,10 @@ b) JSONStorage plugin is imported to readDataModel.js. This file contains the qu
 c) readDataModel.js also converts the output of jsonpath to LocalStorage type structures, which can then be processsed by my QML in the same way that my QML currently handles SQL recordsets.
 d) the actual json query magic happens in jsonpath.js.
 
+Important: I lost a fair bit of time understanding the query format. In particular equals follows the java / javascript format (double or triple equals sign). As an example, in order to select all template objects that are childs of the area object with id 1,  the query is:
+
+"$.landed.area[?(@.id == 1 )].template[*]"
+
+or
+
+"$.landed.area[?(@.id === 1 )].template[*]"
