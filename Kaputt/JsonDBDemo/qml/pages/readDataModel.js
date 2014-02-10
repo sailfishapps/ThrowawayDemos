@@ -49,8 +49,58 @@ function getTemplates(area_id) {
     var db = getDatabase();
     console.log("getting Templates for area: " + area_id);
     //('SELECT * FROM Template t where t.area_id= ?;', [area_id]);
-    //var query = "$.landed.area[?(@.id = " + area_id + ")].template[*]"
-    var query = "$.landed.area[?(@.id = 1)].template[*]"
+
+    //var query = "$.landed.area[(@.id = " + area_id + ")].template[*]"
+
+    // return all templates where the area id is 0, should return nothing
+    //var query = "$.landed.area[(@.id = 0)].template[*]" // returns 11 and 12 --> NOT OK
+
+    // return all templates where the area id is 1, should return 11, 12
+    //var query = "$.landed.area[(@.id = 1)].template[*]" //returns  21 and 22 --> NOT OK
+
+    // return all templates where the area id is 2, should return 21, 22
+    //var query = "$.landed.area[(@.id = 2)].template[*]" //returns 31 and 32 --> NOT OK
+
+    // return all templates where the area id is 3, should return 31, 32
+    //var query = "$.landed.area[(@.id = 3)].template[*]" //returns nothing --> NOT OK
+
+    // Filter OUT all those where area id is 0, should return 11, 12, 21, 22, 31, 32
+    //var query = "$.landed.area[?(@.id = 0)].template[*]" // returns nothing --> NOT OK
+
+    // Filter OUT all those where area id is 1, should return 21, 22, 31, 32
+    //var query = "$.landed.area[?(@.id = 1)].template[*]" // returns 11, 12, 21, 22, 31, 32 --> NOT OK
+
+    // Filter OUT all those where area id is 2, should return 11, 12, 31, 32
+    //var query = "$.landed.area[?(@.id = 2)].template[*]" // returns 11, 12, 21, 22, 31, 32 --> NOT OK
+
+    // Filter OUT all those where area id is 3, should return 11, 12, 21, 22
+    //var query = "$.landed.area[?(@.id = 3)].template[*]" // returns 11, 12, 21, 22, 31, 32 --> NOT OK
+
+    // return all templates where the area id is NOT 0, should return 11, 12, 21, 22, 31, 32
+    //var query = "$.landed.area[(@.id != 0)].template[*]" // returns nothing --> NOT OK
+
+    // return all templates where the area id is NOT 1, should return 21, 22, 31, 32
+    //var query = "$.landed.area[(@.id != 1)].template[*]" // returns nothing --> NOT OK
+
+    // return all templates where the area id is NOT 2, should return 11, 12, 31, 32
+    //var query = "$.landed.area[(@.id != 2)].template[*]" // returns nothing --> NOT OK
+
+    // return all templates where the area id is NOT 3, should return 11, 12, 21, 22
+    //var query = "$.landed.area[(@.id != 3)].template[*]" // returns nothing --> NOT OK
+
+    // Filter OUT all those where the area id is NOT 0, should return 11, 12, 21, 22, 31, 32
+    //var query = "$.landed.area[?(@.id != 0)].template[*]" // returns 11, 12, 21, 22, 31, 32 --> OK
+
+    // Filter OUT all those where the area id is NOT 1, should return 21, 22, 31, 32
+    //var query = "$.landed.area[?(@.id != 1)].template[*]" // returns 21, 22, 31, 32 --> OK
+
+    // Filter OUT all those where the area id is NOT 2, should return 11, 22, 31, 32
+    //var query = "$.landed.area[?(@.id != 2)].template[*]" // returns 11, 22, 31, 32 --> OK
+
+    // Filter OUT all those where the area id is NOT 3, should return 11, 12, 21, 22
+    //var query = "$.landed.area[?(@.id != 3)].template[*]" // returns 11, 12, 21, 22 --> OK
+
+    var query = "$.landed.area[(@.id = 1 )].template[*]"
     var rs = executeQuery(db, query);
     console.log("readDataModel.js: rs.length: " + rs.length);
     return rs;

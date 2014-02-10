@@ -104,7 +104,7 @@ Page {
         Label{
             width: templateView.width
             height: templateView.itemHeight
-            text: name
+            text: name + " " + template_id
             font.pointSize: 26
         }
     }

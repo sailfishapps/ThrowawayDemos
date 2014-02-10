@@ -6,39 +6,39 @@
             "name":"South Africa",
             "template":[
                {
-                  "id":1,
+                  "id":11,
                   "name":"DefaultOKMsg"
                },
                {
-                  "id":2,
+                  "id":12,
+                  "name":"DefaultNotOKMsg"
+               }
+            ]
+         },
+         {
+            "id":2,
+            "name":"Schweiz",
+            "template":[
+               {
+                  "id":21,
+                  "name":"DefaultOKMsg"
+               },
+               {
+                  "id":22,
                   "name":"DefaultNotOKMsg"
                }
             ]
          },
          {
             "id":3,
-            "name":"Schweiz",
-            "template":[
-               {
-                  "id":1,
-                  "name":"DefaultOKMsg"
-               },
-               {
-                  "id":2,
-                  "name":"DefaultNotOKMsg"
-               }
-            ]
-         },
-         {
-            "id":4,
             "name":"Italia",
             "template":[
                {
-                  "id":1,
+                  "id":31,
                   "name":"DefaultOKMsg"
                },
                {
-                  "id":2,
+                  "id":32,
                   "name":"DefaultNotOKMsg"
                }
             ]
