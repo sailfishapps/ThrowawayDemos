@@ -1,13 +1,20 @@
 This app demos an "initial picker" similar to that used in the Jolla People App
+
 Basically it filters a model based on the selected initial letter,
+
 It,  a) reduces the need to scroll through long lists
+     
      b) is easier to use then a search dialog
 
 This implementation is provided "as is". It is a demo which you are free to use and adapt.
 It is entirely my own code, sharing nothing with the offical people app other than similar look and feel and behaviour
+
 In its current form it does have some rough edges
+
 a) the transitions could be better
+
 b) I have found no way yet of elegantly passing in the field to be filtered. This is "hard-coded" in InitialPicker.qml as "displayLabel", so either your model provides this field / role, or you will have to edit InitialPicker.qml
+
 c) There is no visual indication (yet) if a letter has any entries (and is thus worth pressing). I hope to add this soon.
 
 
