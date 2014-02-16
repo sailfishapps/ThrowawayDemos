@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Name=InitialPickerDemo2
+Icon=InitialPickerDemo2
+Exec=InitialPickerDemo2
+
