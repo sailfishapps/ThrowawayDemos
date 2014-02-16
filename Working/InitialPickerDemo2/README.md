@@ -26,7 +26,9 @@ It's a list view, with clever header and footer components.
 
 The rows of letter buttons are hosted by the listView's header and footers (both the header and footer host the full alphabet)
 
-Each row decides for itself if it should be visible on the header or footer.
+Each row decides for itself if it should be visible on the header or footer, so a row will only be visible in either the header, or the footer, never in both.
+
+When a letter button is pressed, the ListView appears to open immediately below the row hosting the letter.
 
 The model displayed is a copy of that provided by parameter to InitialPicker.qml, filtered as necessary.
 
