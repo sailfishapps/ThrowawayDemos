@@ -34,9 +34,13 @@ which is a neat trick cutting down repetative code. In a future version I might 
 Change Control
 
 Version 3: Second public version
+
 1) Components renamed from "Letter" to "Character", as the Initial may also be a digit. Thanks CDW.
+
 2) Folders introduced to better structure the code, and separate the component elements from demo code
+
 3) Rows are now also dynamically created, and all chars are provided as one long array to InitialCharacterPicker
+
 4) Buttons that have no entries are have darkgrey text (to indicate no hits), and mousearea is disabled.
 
 Version 2: First public version
