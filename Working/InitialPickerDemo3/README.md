@@ -1,7 +1,7 @@
 This app demos an "initial picker" similar to that used in the Jolla People App
 
-Basically it filters a model based on the selected initial letter,
-It:
+Basically it filters a model based on the selected initial letter. It:
+
 a) reduces the need to scroll through long lists
 
 b) is easier to use then a search dialog
