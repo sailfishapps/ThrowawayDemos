@@ -9,11 +9,15 @@ b) is easier to use then a search dialog
 This implementation is provided "as is". It is a demo which you are free to use and adapt.
 It is entirely my own code, sharing nothing with the offical people app other than similar look and feel and behaviour
 In its current form it does have some rough edges
+
 a) the transitions could be better
+
 b) I have found no way yet of elegantly passing in the field / role to be filtered. This is "hard-coded"
 in InitialPicker.qml as "displayLabel", so either your model provides this field / role,
 or you will have to edit InitialPicker.qml
+
 c) When initialised with % (display all), the header opens "off screen", but you can scroll up to it.
+
 d) if opened on a Jolla device from QtCreator, things may not respond properly until the app is minimised
    and maximised once (this is common to many apps, and is a problem with the development environment, not the app itself)
 
