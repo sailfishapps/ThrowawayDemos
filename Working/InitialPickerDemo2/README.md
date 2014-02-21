@@ -1,3 +1,6 @@
+2014.02.21 Please see https://github.com/sailfishapps/ThrowawayDemos/tree/master/Working/InitialPickerDemo3
+
+
 This app demos an "initial picker" similar to that used in the Jolla People App
 
 Basically it filters a model based on the selected initial letter,
