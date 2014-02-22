@@ -77,7 +77,7 @@ Item {
 
 
                         //depends on model providing a function called value2Filteron in which returns the value to be filterdon.
-                        // --> nasty coupling to parent, but abstracted a bit, and made evident in example model
+                        // --> still some coupling to parent element, but abstracted a bit, and made evident in example model
                         var field = model.value2FilterOn(j);
                         if (field.charAt(0).toUpperCase() == character.toUpperCase()) {
                             hits++;
@@ -139,7 +139,7 @@ Item {
         }
     }
 
-    ListView {
+    SilicaListView {
         id: listView
         anchors.fill: parent
         //height: childrenRect.height // don't this, it stops the listview flicking!!!!!
@@ -147,6 +147,7 @@ Item {
         header: characterHeader
         footer: characterFooter
         clip: true
+        VerticalScrollDecorator { flickable: listView }
     }
 
     Component{

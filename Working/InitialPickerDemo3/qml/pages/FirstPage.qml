@@ -19,11 +19,8 @@ Page {
     // It is entirely my own code, sharing nothing with the offical people app other than similar look and feel and behaviour
     // In its current form it does have some rough edges
     // a) the transitions could be better
-    // b) I have found no way yet of elegantly passing in the field / role to be filtered. This is "hard-coded"
-    //      in InitialPicker.qml as "displayLabel", so either your model provides this field / role,
-    //      or you will have to edit InitialPicker.qml
-    // c) When initialised with % (display all), the header opens "off screen", but you can scroll up to it.
-    // d) if opened on a Jolla device from QtCreator, things may not respond properly until the app is minimised
+    // b) When initialised with % (display all), the header opens "off screen", but you can scroll up to it.
+    // c) if opened on a Jolla device from QtCreator, things may not respond properly until the app is minimised
     //    and maximised once (this is common to many apps, and is a problem with the development environment, not the app itself)
 
     //How does it work?
@@ -36,11 +33,16 @@ Page {
     // which is a neat trick cutting down repetative code. In a future version I might apply the same trick to the rows.
 
     //Change Control
+
     //Version 3: Second public version
     //1) Components renamed from "Letter" to "Character", as the Initial may also be a digit. Thanks CDW.
     //2) Folders introduced to better structure the code, and separate the component elements from demo code
     //3) Rows are now also dynamically created, and all chars are provided as one long array to InitialCharacterPicker
     //4) Buttons that have no entries are have darkgrey text (to indicate no hits), and mousearea is disabled.
+    //5) VerticalScolldecorator added
+    //6) The Model used must have a function value2FilterOn(index) return the value of the field to be filtered
+    //   This means that the field's role is no longer hard-coded inside InitialCharacterPicker
+    //   --> better encapsulation, lower coupling.
 
     //Version 2: First public version
 
@@ -58,7 +60,6 @@ Page {
         initialCharacter: ""
         charactersPerRow: 5
         characters: ["%", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "" ]
-
     }
 
     //Note: It is assummed that the model is already alphabetically sorted!
@@ -67,7 +68,7 @@ Page {
         id: exampleModel
         objectName: "exampleModel"
         //attempt to pass the role name to a dynamic javascript function
-        property string role2Filter: "displayLabel"
+        //property string role2Filter: "displayLabel"
         function value2FilterOn(index){
             return get(index).displayLabel;
         }
