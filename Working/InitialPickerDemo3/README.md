@@ -43,6 +43,15 @@ Version 3: Second public version (latest update 22 Feb 2014  15:00 CET)
 
 6) The Model used must have a function value2FilterOn(index) return the value of the field to be filtered.This means that the field's role is no longer hard-coded inside InitialCharacterPicker: --> better encapsulation, lower coupling.
 
+7) new parameter caseSensitive (default false)
+
+8) Leading blanks are trimmed away in filter and sort
+
+9) "#" hash symbol acts a wild card for entries starting with a digit
+
+10) We demonstrate building the characters array programmatically with loops, rather than as a "longhand-coded" array declaration
+
+
 Version 2: First public version
 
 Version 1: Proof on Concept version: 90% completed, but had some major flaws --> was canibalised and reused for version 2
