@@ -58,6 +58,7 @@ Page {
         initialCharacter: ""
         charactersPerRow: 5
         characters: ["%", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "" ]
+
     }
 
     //Note: It is assummed that the model is already alphabetically sorted!
@@ -65,6 +66,11 @@ Page {
     ExampleModel {
         id: exampleModel
         objectName: "exampleModel"
+        //attempt to pass the role name to a dynamic javascript function
+        property string role2Filter: "displayLabel"
+        function value2FilterOn(index){
+            return get(index).displayLabel;
+        }
     }
 
     Component {

@@ -30,6 +30,7 @@ Item {
     property string initialCharacter: ""
     property string selectedCharacter
     property string selectedRow: "none"
+    property string role2Filter
 
     onSelectedCharacterChanged: {
         console.log("picker: onSelectedCharacterChanged: " + selectedCharacter + " filtering model")
@@ -56,10 +57,43 @@ Item {
                 else {
                     //normal character
                     for (var j = 0; j < model.count; j ++) {
+
+                        /*
+                        //dynamic attempt (does not work (yet))
+                        //--> still some coupling, but all the user has to do is provide a string property, not a function.
                         var rec = model.get(j);
+                        console.log("rec: " + rec);
+                        var getValue2Filter = new Function(
+                                    "return function foo(){ return " + rec + "." + model.role2Filter + " }"
+                        )();
+                        var value2Filter = getValue2Filter();
+
+                        console.log("field2FilterOn: " + field)
+                        if (value2Filter.charAt(0).toUpperCase() == character.toUpperCase()) {
+                            hits++;
+                        }
+                        //end dynamic attempt
+                        */
+
+
+                        //depends on model providing a function called value2Filteron in which returns the value to be filterdon.
+                        // --> nasty coupling to parent, but abstracted a bit, and made evident in example model
+                        var field = model.value2FilterOn(j);
+                        if (field.charAt(0).toUpperCase() == character.toUpperCase()) {
+                            hits++;
+                        }
+
+
+                        /*
+                        //original version, depends on model having role displayLabel
+                        // --> very nasty coupling of child to parent
+                        var rec = model.get(j);
+                        console.log ("rec: " + rec);
                         if (rec.displayLabel.charAt(0).toUpperCase() == character.toUpperCase()) {
                             hits++;
                         }
+                        */
+
                     }
                 }
                 charsModel.push({"char": character, "hits": hits});
@@ -93,9 +127,10 @@ Item {
             else {
                 //filter on the chosen character
                 for (var i = 0; i < model.count; i ++) {
-                    var rec = model.get(i);
-                    if (rec.displayLabel.charAt(0).toUpperCase() == filter.toUpperCase()) {
+                    var field = model.value2FilterOn(i);
+                    if (field.charAt(0).toUpperCase() == filter.toUpperCase()) {
                         //console.log("appending to filteredModel")
+                        var rec = model.get(i);
                         filteredModel.append(rec);
                     }
                 }
