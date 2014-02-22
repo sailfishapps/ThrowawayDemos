@@ -30,6 +30,9 @@ ListModel {
         displayLabel: "Anne"
     }
     ListElement {
+        displayLabel: " archie"
+    }
+    ListElement {
         displayLabel: "Arvin"
     }
     ListElement {
@@ -271,6 +274,15 @@ ListModel {
     }
     ListElement {
         displayLabel: "Zoe"
+    }
+    ListElement {
+        displayLabel: "1648 Brewing Co"
+    }
+    ListElement {
+        displayLabel: "4Ts"
+    }
+    ListElement {
+        displayLabel: "8 Sail"
     }
 }
 

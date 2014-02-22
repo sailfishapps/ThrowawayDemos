@@ -11,7 +11,7 @@ Page {
     id: page
 
     // This app demos an "initial picker" similar to that used in the Jolla People App
-    // Basically it filters a model based on the selected initial letter,
+    // It filters a model based on the selected initial letter, thus:,
     // It,  a) reduces the need to scroll through long lists
     //      b) is easier to use then a search dialog
 
@@ -43,6 +43,10 @@ Page {
     //6) The Model used must have a function value2FilterOn(index) return the value of the field to be filtered
     //   This means that the field's role is no longer hard-coded inside InitialCharacterPicker
     //   --> better encapsulation, lower coupling.
+    //7) new parameter caseSensitive (default false)
+    //8) Leading blanks are trimmed away in filter and sort
+    //9) "#" hash symbol acts a wild card for entries starting with a digit
+    //10) We demonstrate building the characters array programmatically with loops, rather than as a "longhand-coded" array declaration
 
     //Version 2: First public version
 
@@ -58,11 +62,38 @@ Page {
         //initialCharacter is used to provide the initial to filter on when the component is created
         //"" will chose nothing, "%" all entries, any other letter will be filtered upon as normal.
         initialCharacter: ""
+        caseSensitive: false
         charactersPerRow: 5
-        characters: ["%", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "" ]
+        //characters: ["%", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "#" ]
+
+        //demo programmatic building of character array --> helps avoid typos!
+        //as the app builder is is up to you how you build the array of characters, longhand as above, or via function as below
+        property bool displayChars: true
+        property bool displayNumerals: true
+        characters: buildCharacters(displayChars, displayNumerals);
+
+        function buildCharacters(displayChars, displayNumerals) {
+            var ret = [];
+            if (displayChars) {
+                //alphanumeric wild card, will display all entries
+                ret.push("%");
+                //65-90 ascii codes for chars A to Z
+                for (var i = 65; i <= 90; i++) {
+                    ret.push(String.fromCharCode(i));
+                }
+            }
+            if (displayNumerals) {
+                //48-57 ascii codes for digits 0 to 9
+                for (var i = 48; i <= 57; i++) {
+                    ret.push(String.fromCharCode(i));
+                }
+                //numeric wildcard, will display entries starting with a numeral
+                ret.push("#");
+            }
+            return ret;
+        }
     }
 
-    //Note: It is assummed that the model is already alphabetically sorted!
     //The model has a role displayLabel: This is the role that will be filtered on
     ExampleModel {
         id: exampleModel
